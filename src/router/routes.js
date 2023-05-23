@@ -4,6 +4,8 @@ export const routes = [
     name: "login",
     meta: {
       layout: "empty",
+      noauth: true,
+      title: "Вход",
     },
     component: () => import("@/views/LoginView"),
   },
@@ -12,6 +14,8 @@ export const routes = [
     name: "register",
     meta: {
       layout: "empty",
+      noauth: true,
+      title: "Регистрация",
     },
     component: () => import("@/views/RegisterView"),
   },
@@ -20,6 +24,8 @@ export const routes = [
     name: "home",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Счет",
     },
     component: () => import("@/views/HomeView"),
   },
@@ -28,14 +34,18 @@ export const routes = [
     name: "categories",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Категории",
     },
     component: () => import("@/views/CategoriesView"),
   },
   {
-    path: "/detail-record",
-    name: "detail-record",
+    path: "/detail/:id",
+    name: "detail",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Запись",
     },
     component: () => import("@/views/DetailRecordView"),
   },
@@ -44,6 +54,8 @@ export const routes = [
     name: "history",
     meta: {
       layout: "main",
+      auth: true,
+      title: "История",
     },
     component: () => import("@/views/HistoryView"),
   },
@@ -52,6 +64,8 @@ export const routes = [
     name: "planning",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Планиорвание",
     },
     component: () => import("@/views/PlanningView"),
   },
@@ -60,6 +74,8 @@ export const routes = [
     name: "profile",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Профиль",
     },
     component: () => import("@/views/ProfileView"),
   },
@@ -68,6 +84,8 @@ export const routes = [
     name: "record",
     meta: {
       layout: "main",
+      auth: true,
+      title: "Список записей",
     },
     component: () => import("@/views/RecordView"),
   },

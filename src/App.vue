@@ -23,4 +23,12 @@ export default {
 <style lang="scss">
 @import "~materialize-css/dist/css/materialize.min.css";
 @import "assets/index.css";
+.v-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 </style>
