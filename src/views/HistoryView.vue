@@ -4,19 +4,31 @@
       <h3>История записей</h3>
     </div>
 
-    <div class="charts">
-      <div class="history-chart">
-        <Pie :data="dataChartOutcome" :options="optionsChartOutcome" />
-      </div>
-      <div class="history-chart">
-        <Pie :data="dataChartIncome" :options="optionsChartIncome" />
-      </div>
-    </div>
-
     <AppLoader v-if="loading" />
     <p v-else-if="!recordsInfo.length">Записей пока нет</p>
 
     <section v-else>
+      <div class="charts">
+        <div
+          class="history-chart"
+          v-if="
+            dataChartOutcome.datasets[0].data.length > 1 ||
+            dataChartOutcome.datasets[0].data[0] != 0
+          "
+        >
+          <Pie :data="dataChartOutcome" :options="optionsChartOutcome" />
+        </div>
+        <div
+          class="history-chart"
+          v-if="
+            dataChartIncome.datasets[0].data.length > 1 ||
+            dataChartIncome.datasets[0].data[0] != 0
+          "
+        >
+          <Pie :data="dataChartIncome" :options="optionsChartIncome" />
+        </div>
+      </div>
+
       <HistoryTable :records="recordsInfo" />
     </section>
   </div>
